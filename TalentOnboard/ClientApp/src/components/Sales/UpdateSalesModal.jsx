@@ -12,7 +12,7 @@ export default class UpdateSalesModal extends Component {
       customerId: this.props.details.customer.id,
       storeId: this.props.details.store.id,
       productId: this.props.details.product.id,
-      dateSold: this.props.details.dateSold
+      dateSold: ''
     };
 
 
@@ -30,6 +30,7 @@ export default class UpdateSalesModal extends Component {
   }
 
   componentDidMount() {
+
   }
 
   // Customer Dropdown handler
