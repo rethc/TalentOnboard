@@ -20,7 +20,7 @@ namespace TalentOnboard.Controllers
             _context = context;
         }
 
-        // GET: api/Stores
+        // GET: Stores/GetStores
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Stores>>> GetStores()
         {
@@ -39,7 +39,6 @@ namespace TalentOnboard.Controllers
             }).ToListAsync();
             return Ok(result);
         }
-
 
         // GET: api/Stores/5
         [HttpGet("{id}")]

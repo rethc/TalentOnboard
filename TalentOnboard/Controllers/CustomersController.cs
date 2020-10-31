@@ -20,7 +20,7 @@ namespace TalentOnboard.Controllers
             _context = context;
         }
 
-        // GET: api/Customers
+        // GET: Customers/GetCustomers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customers>>> GetCustomers()
         {

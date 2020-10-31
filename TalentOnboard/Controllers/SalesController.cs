@@ -15,15 +15,12 @@ namespace TalentOnboard.Controllers
     {
         private readonly TalentContext _context;
 
-
-
-
         public SalesController(TalentContext context)
         {
             _context = context;
         }
 
-        // GET: api/Sales
+        // GET: Sales/GetSales
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sales>>> GetSales()
         {
@@ -31,14 +28,12 @@ namespace TalentOnboard.Controllers
         }
 
 
-        // GET: api/Sales
+        // GET: Sales/GetSalesList
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sales>>> GetSalesList()
         {
             return await _context.Sales.Include(r => r.Customer).Include(r => r.Product).Include(r => r.Store).ToListAsync();
-            // return await _context.Sales.ToListAsync();
         }
-
 
         // GET: api/Sales/5
         [HttpGet("{id}")]
