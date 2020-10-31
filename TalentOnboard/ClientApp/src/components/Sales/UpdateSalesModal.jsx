@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Modal, Form, Dropdown, Input } from 'semantic-ui-react'
+import { Button, Modal, Form, Dropdown, Input } from 'semantic-ui-react'
 import axios from 'axios';
 
 export default class UpdateSalesModal extends Component {
@@ -101,7 +101,6 @@ export default class UpdateSalesModal extends Component {
         <Modal.Header>Edit Sale</Modal.Header>
         <Modal.Content >
           <Modal.Description>
-            <Header>{this.state.productName} </Header>
             <Form>
 
               <Form.Field>
