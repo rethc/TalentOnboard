@@ -12,7 +12,7 @@ export default class UpdateSalesModal extends Component {
       customerId: this.props.details.customer.id,
       storeId: this.props.details.store.id,
       productId: this.props.details.product.id,
-      dateSold: ''
+      dateSold: this.props.details.dateSold
     };
 
 
@@ -91,6 +91,7 @@ export default class UpdateSalesModal extends Component {
   }
 
   render() {
+
     return (
       <Modal
         onClose={this.handleClose}

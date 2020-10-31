@@ -4,7 +4,6 @@ import { Table, Header } from 'semantic-ui-react';
 import UpdateSalesModal from './UpdateSalesModal';
 import CreateSalesModal from './CreateSalesModal';
 import DeleteSalesModal from './DeleteSalesModal';
-import Moment from 'react-moment'
 
 export class Sales extends Component {
   constructor(props) {
@@ -88,7 +87,7 @@ export class Sales extends Component {
                   <Table.Cell>{sale.customer.name}</Table.Cell>
                   <Table.Cell>{sale.product.name}</Table.Cell>
                   <Table.Cell>{sale.store.name}</Table.Cell>
-                  <Table.Cell><Moment format="DD/MM/YYYY">{sale.dateSold}</Moment></Table.Cell>
+                  <Table.Cell>{sale.dateSold}</Table.Cell>
                   <Table.Cell textAlign="center">
 
                     <UpdateSalesModal details={sale} updateTable={this.populateSalesData} customerList={customerList} storeList={storeList} productList={productList} />
