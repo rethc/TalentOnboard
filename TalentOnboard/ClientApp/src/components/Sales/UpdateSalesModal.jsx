@@ -108,7 +108,8 @@ export default class UpdateSalesModal extends Component {
                   placeholder='Select customer'
                   fluid
                   selection
-                  options={this.props.customerList}
+                  options={this.props.customerList}                
+                  defaultValue={this.props.details.customer.name}
                   onChange={this.handleCustomer}
 
                 />
@@ -120,7 +121,8 @@ export default class UpdateSalesModal extends Component {
                   placeholder='Select product'
                   fluid
                   selection
-                  options={this.props.productList}
+                  options={this.props.productList}      
+                  defaultValue={this.props.details.product.name}
                   onChange={this.handleProduct}
                 />
               </Form.Field>
@@ -132,6 +134,7 @@ export default class UpdateSalesModal extends Component {
                   fluid
                   selection
                   options={this.props.storeList}
+                  defaultValue={this.props.details.store.name}
                   onChange={this.handleStore}
                 />
               </Form.Field>
