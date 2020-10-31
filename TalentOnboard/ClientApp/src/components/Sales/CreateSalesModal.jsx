@@ -7,7 +7,6 @@ export default class CreateSalesModal extends Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       modalOpen: false,
       customerId: '',
@@ -29,9 +28,7 @@ export default class CreateSalesModal extends Component {
   }
 
   componentDidMount() {
-    var today = new Date(),
-      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    this.setState({ dateSold: date });
+
   }
 
   // Customer Dropdown handler
@@ -55,15 +52,15 @@ export default class CreateSalesModal extends Component {
     this.setState({ productId: key });
   }
 
-
   handleDate(event) {
     this.setState({ dateSold: event.target.value });
   }
 
-
   // Modal Button Handler
   handleClose() {
-    this.setState({ modalOpen: false })
+    this.setState({
+      modalOpen: false, storeId: '', productId: '', dateSold: ''
+    })
   }
 
   handleOpen() {

@@ -34,7 +34,7 @@ export default class CreateStoresModal extends Component {
 
   // Modal Button Handler
   handleClose() {
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false, storeName: '', storeAddress: '' })
   }
 
   handleOpen() {

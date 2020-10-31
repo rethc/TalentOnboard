@@ -9,10 +9,10 @@ export default class UpdateSalesModal extends Component {
     this.state = {
       salesID: this.props.details.id,
       modalOpen: false,
-      customerId: '',
-      storeId: '',
-      productId: '',
-      dateSold: ''
+      customerId: this.props.details.customer.id,
+      storeId: this.props.details.store.id,
+      productId: this.props.details.product.id,
+      dateSold: this.props.details.dateSold
     };
 
 
@@ -79,7 +79,7 @@ export default class UpdateSalesModal extends Component {
         customerid: this.state.customerId,
         storeid: this.state.storeId,
         productid: this.state.productId,
-        datesold: this.state.dateSold
+        dateSold: this.state.dateSold
       })
       .then((result) => {
         this.props.updateTable();
