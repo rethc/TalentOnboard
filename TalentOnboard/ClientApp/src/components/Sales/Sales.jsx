@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table, Header } from 'semantic-ui-react';
-import UpdateSalesModal from './UpdateSalesModal'
+import UpdateSalesModal from './UpdateSalesModal';
+import CreateSalesModal from './CreateSalesModal';
+import DeleteSalesModal from './DeleteSalesModal';
+
 
 export class Sales extends Component {
   constructor(props) {
     super(props);
-    this.state = { sales: [], tableList: [] };
+    this.state = { sales: [], customerList: [], storeList: [], productList: []};
     this.populateSalesData = this.populateSalesData.bind(this);
   }
 
   componentDidMount() {
     this.populateSalesData();
+    this.getTableList();
   }
 
   populateSalesData = () => {
-    axios.get("Sales/GetSales")
+    axios.get("Sales/GetSalesList")
       .then((result) => {
         this.setState({ sales: result.data })
       })
@@ -24,12 +28,45 @@ export class Sales extends Component {
       });
   }
 
+  getTableList = () => {
+    axios.get("Customers/GetCustomerList")
+      .then((result) => {
+        this.setState({ customerList: result.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      axios.get("Stores/GetStoreList")
+      .then((result) => {
+        this.setState({ storeList: result.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      axios.get("Products/GetProductList")
+      .then((result) => {
+        this.setState({ productList: result.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
-    console.log(this.state.sales);
+
+    const customerList = this.state.customerList.map(c => ({ key: c.id, text: c.name, value: c.name }));
+    const storeList = this.state.storeList.map(s => ({ key: s.id, text: s.name, value: s.name }));
+    const productList = this.state.productList.map(p => ({ key: p.id, text: p.name, value: p.name }));
+
+
     return (
       <div>
         <Header as='h2'>Sales Table</Header>
         <p>This component demonstrates CRUD operations from the sales table.</p>
+
+        <CreateSalesModal updateTable={this.populateSalesData} customerList={customerList} storeList={storeList} productList={productList} />
 
         <Table striped>
           <Table.Header>
@@ -54,7 +91,9 @@ export class Sales extends Component {
                   <Table.Cell>{sale.dateSold}</Table.Cell>
                   <Table.Cell textAlign="center">
 
-                    <UpdateSalesModal details={sale} updateTable={this.populateSalesData} />
+                    <UpdateSalesModal details={sale} updateTable={this.populateSalesData} customerList={customerList} storeList={storeList} productList={productList} />
+                    <DeleteSalesModal salesId={sale.id} updateTable={this.populateSalesData}/>
+
 
                   </Table.Cell>
                 </Table.Row>

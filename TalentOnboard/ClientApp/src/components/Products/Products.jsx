@@ -50,7 +50,7 @@ export class Products extends Component {
                 <Table.Row key={product.id}>
                   <Table.Cell>{product.id}</Table.Cell>
                   <Table.Cell>{product.name}</Table.Cell>
-                  <Table.Cell>{product.price}</Table.Cell>
+                  <Table.Cell>$ {product.price}</Table.Cell>
                   <Table.Cell textAlign="center">
 
 

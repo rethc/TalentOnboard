@@ -28,8 +28,7 @@ namespace TalentOnboard.Controllers
         }
 
 
-
-        // Test Customers
+        // Return List of Customer's name and ID to populate dropdown menu
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customers>>> GetCustomerList()
         {
@@ -41,7 +40,6 @@ namespace TalentOnboard.Controllers
             }).ToListAsync();
             return Ok(result);
         }
-
 
 
         // GET: api/Customers/5

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Button, Header, Modal, Form, Dropdown, Input } from 'semantic-ui-react'
 import axios from 'axios';
 
-export default class UpdateSalesModal extends Component {
+export default class CreateSalesModal extends Component {
 
   constructor(props) {
     super(props);
+
+
     this.state = {
-      salesID: this.props.details.id,
       modalOpen: false,
       customerId: '',
       storeId: '',
@@ -15,17 +16,20 @@ export default class UpdateSalesModal extends Component {
       dateSold: ''
     };
 
-    this.handleCustomer = this.handleCustomer.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
-    // Drop downbox handler     
+    // Drop downbox handler
     this.handleCustomer = this.handleCustomer.bind(this);
     this.handleStore = this.handleStore.bind(this);
     this.handleProduct = this.handleProduct.bind(this);
     this.handleDate = this.handleDate.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   componentDidMount() {
+    var today = new Date(),
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    this.setState({ dateSold: date });
   }
 
   // Customer Dropdown handler
@@ -42,6 +46,7 @@ export default class UpdateSalesModal extends Component {
     this.setState({ storeId: key });
   }
 
+
   // Product Dropdown handler
   handleProduct(event, data) {
     const { value } = data;
@@ -49,7 +54,7 @@ export default class UpdateSalesModal extends Component {
     this.setState({ productId: key });
   }
 
-  // Date picker handler
+
   handleDate(event) {
     this.setState({ dateSold: event.target.value });
   }
@@ -60,19 +65,17 @@ export default class UpdateSalesModal extends Component {
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleSubmit(event) {
-    this.updateSale();
+    this.createSale();
     this.handleClose();
   }
 
-  updateSale = () => {
-    axios.put(`Sales/PutSales/${this.state.salesID}`,
-      {
-        id: this.state.salesID,
-        customerid: this.state.customerId,
-        storeid: this.state.storeId,
-        productid: this.state.productId,
-        datesold: this.state.dateSold
-      })
+  createSale = () => {
+    axios.post("Sales/PostSales", {
+      customerId: this.state.customerId,
+      storeId: this.state.storeId,
+      productId: this.state.productId,
+      dateSold: this.state.dateSold
+    })
       .then((result) => {
         this.props.updateTable();
       })
@@ -88,9 +91,9 @@ export default class UpdateSalesModal extends Component {
         onOpen={this.handleOpen}
         open={this.state.modalOpen}
         size='tiny'
-        trigger={<Button>Edit</Button>}
+        trigger={<Button primary>Create Sale</Button>}
       >
-        <Modal.Header>Edit Sale</Modal.Header>
+        <Modal.Header>Create Sale</Modal.Header>
         <Modal.Content >
           <Modal.Description>
             <Header>{this.state.productName} </Header>
@@ -110,7 +113,6 @@ export default class UpdateSalesModal extends Component {
                   selection
                   options={this.props.customerList}
                   onChange={this.handleCustomer}
-
                 />
               </Form.Field>
 
@@ -122,6 +124,7 @@ export default class UpdateSalesModal extends Component {
                   selection
                   options={this.props.productList}
                   onChange={this.handleProduct}
+
                 />
               </Form.Field>
 
@@ -133,6 +136,7 @@ export default class UpdateSalesModal extends Component {
                   selection
                   options={this.props.storeList}
                   onChange={this.handleStore}
+
                 />
               </Form.Field>
 

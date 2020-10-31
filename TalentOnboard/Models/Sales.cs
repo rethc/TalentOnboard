@@ -11,9 +11,6 @@ namespace TalentOnboard.Models
         public int CustomerId { get; set; }
         public int StoreId { get; set; }
         public int ProductId { get; set; }
-
-        [DataType(DataType.Date)]
-        [Column(TypeName = "Date")]
         public DateTime DateSold { get; set; }
 
         public virtual Customers Customer { get; set; }

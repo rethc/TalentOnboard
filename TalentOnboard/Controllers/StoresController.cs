@@ -27,6 +27,20 @@ namespace TalentOnboard.Controllers
             return await _context.Stores.ToListAsync();
         }
 
+        // Return List of Store's name and ID to populate dropdown menu
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Stores>>> GetStoreList()
+        {
+
+            var result = await _context.Stores.Select(s => new Stores
+            {
+                Id = s.Id,
+                Name = s.Name
+            }).ToListAsync();
+            return Ok(result);
+        }
+
+
         // GET: api/Stores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Stores>> GetStores(int id)

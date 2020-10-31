@@ -20,8 +20,6 @@ export class Customers extends Component {
     axios.get("Customers/GetCustomers")
       .then((result) => {
         this.setState({ customers: result.data })
-        
-
       })
       .catch((error) => {
         console.log(error);

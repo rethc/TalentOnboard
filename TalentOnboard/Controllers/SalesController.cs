@@ -18,17 +18,6 @@ namespace TalentOnboard.Controllers
 
 
 
-        // GET: api/Sales
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sales>>> GetTableList()
-        {
-  
-
-            return await _context.Sales.Include(r => r.Customer).Include(r => r.Product).Include(r => r.Store).ToListAsync();
-        }
-
-
-
         public SalesController(TalentContext context)
         {
             _context = context;
@@ -38,11 +27,19 @@ namespace TalentOnboard.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sales>>> GetSales()
         {
+             return await _context.Sales.ToListAsync();
+        }
+
+
+        // GET: api/Sales
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Sales>>> GetSalesList()
+        {
             return await _context.Sales.Include(r => r.Customer).Include(r => r.Product).Include(r => r.Store).ToListAsync();
             // return await _context.Sales.ToListAsync();
         }
 
- 
+
         // GET: api/Sales/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Sales>> GetSales(int id)

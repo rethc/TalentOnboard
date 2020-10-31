@@ -3,7 +3,7 @@ import { Menu, Container} from 'semantic-ui-react'
 import { NavLink, } from 'react-router-dom'
 
 export default class NavMenu extends Component {
-  state = { activeItem: '' }
+  state = { activeItem: '', customers: "text" }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -25,12 +25,11 @@ export default class NavMenu extends Component {
         </Menu.Item>
 
         <Menu.Item
-          activeClassName='customers' as={NavLink} to="/customers"
+          activeClassName='customers' as={NavLink} to="/customers" c={this.state.customers}
           name='customers'
           active={activeItem === 'customers'}
           onClick={this.handleItemClick}
         >
-          Customers
         </Menu.Item>
 
         <Menu.Item
