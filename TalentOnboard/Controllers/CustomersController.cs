@@ -27,6 +27,23 @@ namespace TalentOnboard.Controllers
             return await _context.Customers.ToListAsync();
         }
 
+
+
+        // Test Customers
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Customers>>> GetCustomerList()
+        {
+
+            var result = await _context.Customers.Select(c => new Customers
+            {
+                Id = c.Id,
+                Name = c.Name
+            }).ToListAsync();
+            return Ok(result);
+        }
+
+
+
         // GET: api/Customers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customers>> GetCustomers(int id)

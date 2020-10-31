@@ -15,6 +15,20 @@ namespace TalentOnboard.Controllers
     {
         private readonly TalentContext _context;
 
+
+
+
+        // GET: api/Sales
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Sales>>> GetTableList()
+        {
+  
+
+            return await _context.Sales.Include(r => r.Customer).Include(r => r.Product).Include(r => r.Store).ToListAsync();
+        }
+
+
+
         public SalesController(TalentContext context)
         {
             _context = context;
@@ -25,12 +39,10 @@ namespace TalentOnboard.Controllers
         public async Task<ActionResult<IEnumerable<Sales>>> GetSales()
         {
             return await _context.Sales.Include(r => r.Customer).Include(r => r.Product).Include(r => r.Store).ToListAsync();
+            // return await _context.Sales.ToListAsync();
         }
 
-        // return await _context.Sales.ToListAsync();
-
-
-
+ 
         // GET: api/Sales/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Sales>> GetSales(int id)
@@ -110,5 +122,10 @@ namespace TalentOnboard.Controllers
         {
             return _context.Sales.Any(e => e.Id == id);
         }
+
     }
+
+
+
+
 }

@@ -7,9 +7,10 @@ export default class UpdateSalesModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productID: this.props.details.id,
-      productName: this.props.details.name,
-      productPrice: this.props.details.price,
+      salesID: this.props.details.id,
+      salesCustomerID: this.props.details.customer.id,
+      salesProductID: this.props.details.product.id,
+      salesStoreID: this.props.details.store.id,
       modalOpen: false
     };
 
@@ -18,7 +19,11 @@ export default class UpdateSalesModal extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
   componentDidMount() {
+    //console.log(this.state.salesCustomerID, this.state.salesProductID, this.state.salesStoreID)
+
   }
 
   // Name Text Handler
@@ -51,7 +56,6 @@ export default class UpdateSalesModal extends Component {
   }
 
   render() {
-
     return (
       <Modal
         onClose={this.handleClose}
@@ -60,20 +64,20 @@ export default class UpdateSalesModal extends Component {
         size='tiny'
         trigger={<Button>Edit</Button>}
       >
-        <Modal.Header>Edit Product</Modal.Header>
+        <Modal.Header>Edit Sale</Modal.Header>
         <Modal.Content >
           <Modal.Description>
             <Header>{this.state.productName} </Header>
             <Form>
               <Form.Field>
-                <label>Product Name</label>
-                <input type="text" value={this.state.productName}
-                  onChange={this.handleName} />
+                <label>Customer Name</label>
+               
+
+
               </Form.Field>
               <Form.Field>
                 <label>Price</label>
-                <input type="number" value={this.state.productPrice}
-                  onChange={this.handlePrice} />
+
               </Form.Field>
             </Form>
           </Modal.Description>

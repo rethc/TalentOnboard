@@ -83,7 +83,7 @@ export default class CreateCustomerModal extends Component {
           <Button
             type='submit'
             content="Create"
-            icon='user plus'
+            icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
             positive        

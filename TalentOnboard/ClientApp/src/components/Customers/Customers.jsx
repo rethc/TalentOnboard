@@ -20,10 +20,13 @@ export class Customers extends Component {
     axios.get("Customers/GetCustomers")
       .then((result) => {
         this.setState({ customers: result.data })
+        
+
       })
       .catch((error) => {
         console.log(error);
       });
+      
   }
 
   render() {
@@ -55,7 +58,6 @@ export class Customers extends Component {
 
                     <UpdateCustomerModal details={customer} updateTable={this.populateCustomerData} />
                     <DeleteCustomerModal customerID={customer.id} updateTable={this.populateCustomerData} />
-
                   </Table.Cell>
                 </Table.Row>
 

@@ -81,7 +81,7 @@ export default class CreateStoresModal extends Component {
           <Button
             type='submit'
             content="Create"
-            icon='shop'
+            icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
             positive        

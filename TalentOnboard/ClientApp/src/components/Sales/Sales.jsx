@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table, Header } from 'semantic-ui-react';
+import UpdateSalesModal from './UpdateSalesModal'
 
 export class Sales extends Component {
   constructor(props) {
     super(props);
-    this.state = { sales: [], };
+    this.state = { sales: [], tableList: [] };
     this.populateSalesData = this.populateSalesData.bind(this);
   }
 
@@ -17,7 +18,6 @@ export class Sales extends Component {
     axios.get("Sales/GetSales")
       .then((result) => {
         this.setState({ sales: result.data })
-        console.log(result.data);
       })
       .catch((error) => {
         console.log(error);
@@ -25,6 +25,7 @@ export class Sales extends Component {
   }
 
   render() {
+    console.log(this.state.sales);
     return (
       <div>
         <Header as='h2'>Sales Table</Header>
@@ -53,6 +54,8 @@ export class Sales extends Component {
                   <Table.Cell>{sale.dateSold}</Table.Cell>
                   <Table.Cell textAlign="center">
 
+                    <UpdateSalesModal details={sale} updateTable={this.populateSalesData} />
+
                   </Table.Cell>
                 </Table.Row>
               )
@@ -62,6 +65,4 @@ export class Sales extends Component {
       </div>
     );
   }
-
-
 }

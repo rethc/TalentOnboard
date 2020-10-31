@@ -81,7 +81,7 @@ export default class CreateProductModal extends Component {
           <Button
             type='submit'
             content="Create"
-            icon='box'
+            icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
             positive        

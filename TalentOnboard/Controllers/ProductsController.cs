@@ -27,6 +27,7 @@ namespace TalentOnboard.Controllers
             return await _context.Products.ToListAsync();
         }
 
+ 
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Products>> GetProducts(int id)
