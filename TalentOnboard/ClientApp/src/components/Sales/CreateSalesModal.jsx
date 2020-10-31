@@ -22,13 +22,15 @@ export default class CreateSalesModal extends Component {
     this.handleProduct = this.handleProduct.bind(this);
     this.handleDate = this.handleDate.bind(this);
 
+    // Button handlers
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   componentDidMount() {
     var today = new Date(),
-    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     this.setState({ dateSold: date });
   }
 
@@ -46,7 +48,6 @@ export default class CreateSalesModal extends Component {
     this.setState({ storeId: key });
   }
 
-
   // Product Dropdown handler
   handleProduct(event, data) {
     const { value } = data;
@@ -61,8 +62,13 @@ export default class CreateSalesModal extends Component {
 
 
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
   handleSubmit(event) {
     this.createSale();

@@ -8,6 +8,9 @@ export default class DeleteCustomerModal extends Component {
     super(props);
     this.state = { customerID: this.props.customerID, modalOpen: false };
 
+    // Button handlers
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,13 +20,17 @@ export default class DeleteCustomerModal extends Component {
   }
 
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
 
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
   deleteCustomer = () => {
     axios.delete(`Customers/DeleteCustomers/${this.state.customerID}`)
-      .then((result) => {   
+      .then((result) => {
         this.props.updateTable();
       })
       .catch((error) => {

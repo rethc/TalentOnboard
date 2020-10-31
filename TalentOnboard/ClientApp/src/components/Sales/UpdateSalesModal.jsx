@@ -15,14 +15,18 @@ export default class UpdateSalesModal extends Component {
       dateSold: ''
     };
 
-    this.handleCustomer = this.handleCustomer.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
 
     // Drop downbox handler     
     this.handleCustomer = this.handleCustomer.bind(this);
     this.handleStore = this.handleStore.bind(this);
     this.handleProduct = this.handleProduct.bind(this);
     this.handleDate = this.handleDate.bind(this);
+
+    // Button handlers
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -54,10 +58,14 @@ export default class UpdateSalesModal extends Component {
     this.setState({ dateSold: event.target.value });
   }
 
-
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
   handleSubmit(event) {
     this.updateSale();
@@ -108,7 +116,7 @@ export default class UpdateSalesModal extends Component {
                   placeholder='Select customer'
                   fluid
                   selection
-                  options={this.props.customerList}                
+                  options={this.props.customerList}
                   defaultValue={this.props.details.customer.name}
                   onChange={this.handleCustomer}
 
@@ -121,7 +129,7 @@ export default class UpdateSalesModal extends Component {
                   placeholder='Select product'
                   fluid
                   selection
-                  options={this.props.productList}      
+                  options={this.props.productList}
                   defaultValue={this.props.details.product.name}
                   onChange={this.handleProduct}
                 />

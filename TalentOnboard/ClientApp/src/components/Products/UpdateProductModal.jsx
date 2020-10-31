@@ -13,8 +13,13 @@ export default class UpdateProductModal extends Component {
       modalOpen: false
     };
 
+    // Form hanlders
     this.handleName = this.handleName.bind(this);
     this.handlePrice = this.handlePrice.bind(this);
+
+    // Button hanlders
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -32,8 +37,13 @@ export default class UpdateProductModal extends Component {
   }
 
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
   handleSubmit(event) {
     this.updateProductDetails();

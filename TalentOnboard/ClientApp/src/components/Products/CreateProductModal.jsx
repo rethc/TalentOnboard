@@ -10,7 +10,12 @@ export default class CreateProductModal extends Component {
 
     this.handleName = this.handleName.bind(this);
     this.handlePrice = this.handlePrice.bind(this);
+
+    // Button handlers
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   handleSubmit(event) {
@@ -29,9 +34,13 @@ export default class CreateProductModal extends Component {
   }
 
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
 
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
   addNewProduct = () => {
     axios.post("Products/PostProducts", {

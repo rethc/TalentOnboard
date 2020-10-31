@@ -8,6 +8,9 @@ export default class DeleteSalesModal extends Component {
     super(props);
     this.state = { salesId: this.props.salesId, modalOpen: false };
 
+    // Button handlers
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,13 +20,18 @@ export default class DeleteSalesModal extends Component {
   }
 
   // Modal Button Handler
-  handleClose = () => this.setState({ modalOpen: false })
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose() {
+    this.setState({ modalOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
 
 
   deleteProduct = () => {
     axios.delete(`Sales/DeleteSales/${this.state.salesId}`)
-      .then((result) => {   
+      .then((result) => {
         this.props.updateTable();
       })
       .catch((error) => {
