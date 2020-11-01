@@ -6,8 +6,8 @@ Welcome to my react web application that demonstrates CRUD (Create, Read, Update
 [https://reth.azurewebsites.net/](https://reth.azurewebsites.net/ "React.js web app")
 
 ## This app is built on:
-* ASP.NET Core and **C#** for cross-platform server-side code.
-* React for client-side code.
+* **ASP.NET Core** and **C#** for cross-platform server-side code.
+* **React.js** for client-side code.
 * Semantic UI React for layout and styling.
 * Azure SQL Database for the backend database.
 * react-axios libraries for AJAX calls.
