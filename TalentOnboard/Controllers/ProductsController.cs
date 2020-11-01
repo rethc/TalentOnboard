@@ -40,8 +40,6 @@ namespace TalentOnboard.Controllers
             return Ok(result);
         }
 
-
-
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Products>> GetProducts(int id)

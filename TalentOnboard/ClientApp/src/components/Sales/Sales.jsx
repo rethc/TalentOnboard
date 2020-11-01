@@ -8,8 +8,8 @@ import DeleteSalesModal from './DeleteSalesModal';
 export class Sales extends Component {
   constructor(props) {
     super(props);
-    this.state = { sales: [], customerList: [], storeList: [], productList: []};
-    
+    this.state = { sales: [], customerList: [], storeList: [], productList: [] };
+
     this.populateSalesData = this.populateSalesData.bind(this);
     this.getTableList = this.getTableList.bind(this);
   }
@@ -19,6 +19,17 @@ export class Sales extends Component {
     this.getTableList();
 
   }
+
+  parseDate(d) {
+    const date = new Date(d);
+
+    return new Intl.DateTimeFormat("en-GB", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit"
+    }).format(date);
+  }
+
 
   populateSalesData() {
     axios.get("Sales/GetSalesList")
@@ -39,7 +50,7 @@ export class Sales extends Component {
         console.log(error);
       });
 
-      axios.get("Stores/GetStoreList")
+    axios.get("Stores/GetStoreList")
       .then((result) => {
         this.setState({ storeList: result.data })
       })
@@ -47,7 +58,7 @@ export class Sales extends Component {
         console.log(error);
       });
 
-      axios.get("Products/GetProductList")
+    axios.get("Products/GetProductList")
       .then((result) => {
         this.setState({ productList: result.data })
       })
@@ -90,11 +101,11 @@ export class Sales extends Component {
                   <Table.Cell>{sale.customer.name}</Table.Cell>
                   <Table.Cell>{sale.product.name}</Table.Cell>
                   <Table.Cell>{sale.store.name}</Table.Cell>
-                  <Table.Cell>{sale.dateSold}</Table.Cell>
+                  <Table.Cell>{this.parseDate(sale.dateSold)}</Table.Cell>
                   <Table.Cell textAlign="center">
 
                     <UpdateSalesModal details={sale} updateTable={this.populateSalesData} customerList={customerList} storeList={storeList} productList={productList} />
-                    <DeleteSalesModal salesId={sale.id} updateTable={this.populateSalesData}/>
+                    <DeleteSalesModal salesId={sale.id} updateTable={this.populateSalesData} />
 
 
                   </Table.Cell>

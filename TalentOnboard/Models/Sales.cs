@@ -14,6 +14,8 @@ namespace TalentOnboard.Models
         public int StoreId { get; set; }
         public int ProductId { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateSold { get; set; }
 
         public virtual Customers Customer { get; set; }
