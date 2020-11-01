@@ -9,15 +9,18 @@ export class Sales extends Component {
   constructor(props) {
     super(props);
     this.state = { sales: [], customerList: [], storeList: [], productList: []};
+    
     this.populateSalesData = this.populateSalesData.bind(this);
+    this.getTableList = this.getTableList.bind(this);
   }
 
   componentDidMount() {
     this.populateSalesData();
     this.getTableList();
+
   }
 
-  populateSalesData = () => {
+  populateSalesData() {
     axios.get("Sales/GetSalesList")
       .then((result) => {
         this.setState({ sales: result.data })
@@ -27,7 +30,7 @@ export class Sales extends Component {
       });
   }
 
-  getTableList = () => {
+  getTableList() {
     axios.get("Customers/GetCustomerList")
       .then((result) => {
         this.setState({ customerList: result.data })
@@ -55,10 +58,10 @@ export class Sales extends Component {
 
   render() {
 
+    // Initialize values for dropdown menus
     const customerList = this.state.customerList.map(c => ({ key: c.id, text: c.name, value: c.name }));
     const storeList = this.state.storeList.map(s => ({ key: s.id, text: s.name, value: s.name }));
     const productList = this.state.productList.map(p => ({ key: p.id, text: p.name, value: p.name }));
-
 
     return (
       <div>

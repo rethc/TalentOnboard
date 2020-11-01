@@ -16,7 +16,7 @@ export class Stores extends Component {
     this.populateStoreData();
   }
 
-  populateStoreData = () => {
+  populateStoreData() {
     axios.get("Stores/GetStores")
       .then((result) => {
         this.setState({ stores: result.data })

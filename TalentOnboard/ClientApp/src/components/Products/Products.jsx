@@ -16,7 +16,7 @@ export class Products extends Component {
     this.populateProductData();
   }
 
-  populateProductData = () => {
+  populateProductData() {
     axios.get("Products/GetProducts")
       .then((result) => {
         this.setState({ products: result.data })

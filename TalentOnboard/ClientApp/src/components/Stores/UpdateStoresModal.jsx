@@ -96,6 +96,7 @@ export default class UpdateStoresModal extends Component {
             icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
+            disabled={!this.state.storeName || !this.state.storeAddress}
             positive
           />
         </Modal.Actions>

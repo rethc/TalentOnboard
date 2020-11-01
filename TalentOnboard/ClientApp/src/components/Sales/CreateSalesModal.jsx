@@ -156,6 +156,7 @@ export default class CreateSalesModal extends Component {
             icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
+            disabled={!this.state.customerId || !this.state.productId || !this.state.storeId || !this.state.dateSold}
             positive
           />
         </Modal.Actions>

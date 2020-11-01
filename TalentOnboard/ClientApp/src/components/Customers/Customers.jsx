@@ -9,6 +9,7 @@ export class Customers extends Component {
   constructor(props) {
     super(props);
     this.state = { customers: [] };
+    
     this.populateCustomerData = this.populateCustomerData.bind(this);
   }
 
@@ -16,7 +17,7 @@ export class Customers extends Component {
     this.populateCustomerData();
   }
 
-  populateCustomerData = () => {
+  populateCustomerData() {
     axios.get("Customers/GetCustomers")
       .then((result) => {
         this.setState({ customers: result.data })

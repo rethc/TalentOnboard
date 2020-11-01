@@ -161,6 +161,7 @@ export default class UpdateSalesModal extends Component {
             icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
+            disabled={!this.state.dateSold}
             positive
           />
         </Modal.Actions>

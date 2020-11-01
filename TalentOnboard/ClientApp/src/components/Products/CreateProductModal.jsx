@@ -93,6 +93,7 @@ export default class CreateProductModal extends Component {
             icon='checkmark'
             labelPosition='right'
             onClick={this.handleSubmit}
+            disabled={!this.state.productName || !this.state.productPrice}
             positive        
           />
         </Modal.Actions>
