@@ -45,7 +45,7 @@ export default class DeleteProductModal extends Component {
         onOpen={this.handleOpen}
         open={this.state.modalOpen}
         size='mini'
-        trigger={<Button icon='delete'></Button>}
+        trigger={<Button icon='trash'></Button>}
       >
         <Modal.Header>Delete Product</Modal.Header>
         <Modal.Content >
