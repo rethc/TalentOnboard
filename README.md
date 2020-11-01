@@ -3,7 +3,7 @@
 Welcome to my react web application that demonstrates CRUD (Create, Read, Update and Delete) operations on an SQL database. 
 
 ## Live Demo: 
-[https://reth.azurewebsites.net/](https://reth.azurewebsites.net/ "React.js web app")
+[https://reth.azurewebsites.net/](https://reth.azurewebsites.net/)
 
 ## This app is built on:
 * **ASP.NET Core** and **C#** for cross-platform server-side code.
@@ -20,4 +20,4 @@ Welcome to my react web application that demonstrates CRUD (Create, Read, Update
 * Industry Connect
 
 ## License: 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the [MIT License](https://github.com/rethc/TalentOnboard/blob/master/LICENSE).
