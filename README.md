@@ -6,7 +6,6 @@ Welcome to my react web application that demonstrates CRUD (Create, Read, Update
 [https://reth.azurewebsites.net/](https://reth.azurewebsites.net/ "React.js web app")
 
 ## This app is built on:
-
 * ASP.NET Core and **C#** for cross-platform server-side code.
 * React for client-side code.
 * Semantic UI React for layout and styling.
@@ -20,7 +19,5 @@ Welcome to my react web application that demonstrates CRUD (Create, Read, Update
 * MVP Studio
 * Industry Connect
 
-
 ## License: 
-
 This project is licensed under the terms of the MIT license.
