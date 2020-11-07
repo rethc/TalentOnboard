@@ -9,14 +9,14 @@ export class Layout extends Component {
     return (
       <div>
         <NavMenu />
-        <Segment style={{ padding: '4em' }}>
+            <Segment basic style={{ paddingTop: '3em' }}>
                 {this.props.children}
             </Segment>
-
+            <Segment basic>
+                <hr />
           <footer>&copy; 2020 - Chesda Reth React.js </footer>
+            </Segment >
       </div>
     );
   }
 }
-
-
