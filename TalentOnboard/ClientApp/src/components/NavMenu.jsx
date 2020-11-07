@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Menu, Container } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 export default class NavMenu extends Component {
 
     render() {
         return (
-            <Menu inverted fixed="top">
-                <Container>
+            <Menu inverted>
                     <Menu.Item header>Chesda Reth</Menu.Item>
                     <Menu.Item
                         as={NavLink}
@@ -40,7 +39,6 @@ export default class NavMenu extends Component {
                         to="/sales"
                     >
                     </Menu.Item>
-                </Container>
             </Menu>
         )
     }

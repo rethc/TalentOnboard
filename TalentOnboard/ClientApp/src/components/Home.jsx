@@ -7,7 +7,7 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <Container text style={{ marginTop: '1em' }}>
+        <Container text>
           <Header as='h2'>Chesda Reth Software Developer - Onboarding Project </Header>
           <p>Welcome to my React web application that demonstrates <strong>CRUD</strong> (Create, Read, Update and Delete) operations. This app is built on: </p>
           <List bulleted>
