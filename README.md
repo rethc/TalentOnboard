@@ -2,6 +2,8 @@
 
 Welcome to my react web application that demonstrates CRUD (Create, Read, Update and Delete) operations on an SQL database. 
 
+Please see repo for improved version https://github.com/rethc/Dashboard
+
 ## Live Demo: 
 [https://reth.azurewebsites.net/](https://reth.azurewebsites.net/)
 
