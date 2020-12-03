@@ -1,6 +1,6 @@
 # Software Developer - Onboarding Project
 
-Please see repo for improved version https://github.com/rethc/Dashboard
+Please see repo for improved/refactored version https://github.com/rethc/Dashboard
 
 Welcome to my react web application that demonstrates CRUD (Create, Read, Update and Delete) operations on an SQL database. 
 
